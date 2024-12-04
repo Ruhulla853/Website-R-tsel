@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statue Rätsel und Fragen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h1 {
+            color: #333;
+        }
+        input {
+            padding: 10px;
+            width: 100%;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .congratulations {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4CAF50;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Statue Rätsel und Fragen</h1>
+
+    <div id="question1">
+        <p>Gib den Namen der Statue ein:</p>
+        <input type="text" id="statueName" placeholder="Name der Statue">
+        <button onclick="checkAnswer1()">Prüfen</button>
+        <p id="result1" class="result"></p>
+    </div>
+
+    <div id="question2" style="display: none;">
+        <p>Wer ist Ödipus?</p>
+        <p>a) Ein berühmter griechischer Philosoph</p>
+        <p>b) Der König von Theben in der griechischen Mythologie</p>
+        <p>c) Ein römischer General</p>
+        <p>d) Ein Schauspieler aus der antiken griechischen Komödie</p>
+        <input type="text" id="oedipusAnswer" placeholder="Antwort (z.B. b)">
+        <button onclick="checkAnswer2()">Prüfen</button>
+        <p id="result2" class="result"></p>
+    </div>
+
+    <div id="question3" style="display: none;">
+        <p>Was bedeutet Ödipus?</p>
+        <input type="text" id="oedipusMeaning" placeholder="Antwort">
+        <button onclick="checkAnswer3()">Prüfen</button>
+        <p id="result3" class="result"></p>
+    </div>
+
+    <div id="question4" style="display: none;">
+        <p>Was geht Morgens auf zwei Beinen, Abends mit vier und Nachts mit 3?</p>
+        <input type="text" id="oedipusRiddle" placeholder="Antwort">
+        <button onclick="checkAnswer4()">Prüfen</button>
+        <p id="result4" class="result"></p>
+    </div>
+
+    <div id="congratulations" class="congratulations" style="display: none;">
+        Glückwunsch! Du hast alle Fragen richtig beantwortet!
+    </div>
+</div>
+
+<script>
+    function checkAnswer1() {
+        var statueName = document.getElementById('statueName').value.trim().toLowerCase();
+        var result1 = document.getElementById('result1');
+
+        if (statueName === 'sphinx') {
+            result1.textContent = 'Richtig! Die Statue ist die Sphinx.';
+            result1.style.color = 'green';
+            setTimeout(function() {
+                document.getElementById('question1').style.display = 'none';
+                document.getElementById('question2').style.display = 'block';
+            }, 1000);
+        } else {
+            result1.textContent = 'Falsch! Versuche es noch einmal.';
+            result1.style.color = 'red';
+        }
+    }
+
+    function checkAnswer2() {
+        var oedipusAnswer = document.getElementById('oedipusAnswer').value.trim().toLowerCase();
+        var result2 = document.getElementById('result2');
+
+        if (oedipusAnswer === 'b') {
+            result2.textContent = 'Richtig! Ödipus war der König von Theben.';
+            result2.style.color = 'green';
+            setTimeout(function() {
+                document.getElementById('question2').style.display = 'none';
+                document.getElementById('question3').style.display = 'block';
+            }, 1000);
+        } else {
+            result2.textContent = 'Falsch! Versuche es noch einmal.';
+            result2.style.color = 'red';
+        }
+    }
+
+    function checkAnswer3() {
+        var oedipusMeaning = document.getElementById('oedipusMeaning').value.trim().toLowerCase();
+        var result3 = document.getElementById('result3');
+
+        if (oedipusMeaning === 'schwellfuß') {
+            result3.textContent = 'Richtig! Ödipus bedeutet "Schwellfuß".';
+            result3.style.color = 'green';
+            setTimeout(function() {
+                document.getElementById('question3').style.display = 'none';
+                document.getElementById('question4').style.display = 'block';
+            }, 1000);
+        } else {
+            result3.textContent = 'Falsch! Versuche es noch einmal.';
+            result3.style.color = 'red';
+        }
+    }
+
+    function checkAnswer4() {
+        var oedipusRiddle = document.getElementById('oedipusRiddle').value.trim().toLowerCase();
+        var result4 = document.getElementById('result4');
+
+        if (oedipusRiddle === 'ödipus') {
+            result4.textContent = 'Richtig! Die Antwort auf das Rätsel ist Ödipus.';
+            result4.style.color = 'green';
+            setTimeout(function() {
+                document.getElementById('question4').style.display = 'none';
+                document.getElementById('congratulations').style.display = 'block';
+            }, 1000);
+        } else {
+            result4.textContent = 'Falsch! Versuche es noch einmal.';
+            result4.style.color = 'red';
+        }
+    }
+</script>
+
+</body>
+</html>
